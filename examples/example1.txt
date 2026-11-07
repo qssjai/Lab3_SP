@@ -1,0 +1,7 @@
+// Приклад 1: змінні, арифметика, умова і цикл
+let a = 5;
+let b = a * 2 + 1;
+print(b);
+if (b > 10) { print(a); } else { print(0); }
+while (a > 0) { a = a - 1; }
+print(a);

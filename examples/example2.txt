@@ -1,0 +1,9 @@
+// Приклад 2: сума чисел від 1 до 5
+let i = 1;
+let total = 0;
+while (i <= 5) {
+    total = total + i;
+    i = i + 1;
+}
+print(total);
+if (total > 10) { print(1); } else { print(0); }
