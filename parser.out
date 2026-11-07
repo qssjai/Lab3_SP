@@ -1,0 +1,1541 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_list
+Rule 2     statement_list -> statement_list statement
+Rule 3     statement_list -> statement
+Rule 4     statement -> declaration
+Rule 5     statement -> assignment
+Rule 6     statement -> print_statement
+Rule 7     statement -> if_statement
+Rule 8     statement -> while_statement
+Rule 9     declaration -> LET IDENTIFIER ASSIGN expression SEMICOLON
+Rule 10    assignment -> IDENTIFIER ASSIGN expression SEMICOLON
+Rule 11    print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON
+Rule 12    if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block
+Rule 13    if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE block
+Rule 14    while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN block
+Rule 15    block -> LEFT_BRACE statement_list RIGHT_BRACE
+Rule 16    expression -> expression PLUS expression
+Rule 17    expression -> expression MINUS expression
+Rule 18    expression -> expression TIMES expression
+Rule 19    expression -> expression DIVIDE expression
+Rule 20    expression -> expression EQUALS expression
+Rule 21    expression -> expression NOT_EQUALS expression
+Rule 22    expression -> expression LESS expression
+Rule 23    expression -> expression GREATER expression
+Rule 24    expression -> expression LESS_OR_EQUAL expression
+Rule 25    expression -> expression GREATER_OR_EQUAL expression
+Rule 26    expression -> MINUS expression
+Rule 27    expression -> LEFT_PAREN expression RIGHT_PAREN
+Rule 28    expression -> NUMBER
+Rule 29    expression -> IDENTIFIER
+
+Terminals, with rules where they appear
+
+ASSIGN               : 9 10
+DIVIDE               : 19
+ELSE                 : 13
+EQUALS               : 20
+GREATER              : 23
+GREATER_OR_EQUAL     : 25
+IDENTIFIER           : 9 10 29
+IF                   : 12 13
+LEFT_BRACE           : 15
+LEFT_PAREN           : 11 12 13 14 27
+LESS                 : 22
+LESS_OR_EQUAL        : 24
+LET                  : 9
+MINUS                : 17 26
+NOT_EQUALS           : 21
+NUMBER               : 28
+PLUS                 : 16
+PRINT                : 11
+RIGHT_BRACE          : 15
+RIGHT_PAREN          : 11 12 13 14 27
+SEMICOLON            : 9 10 11
+TIMES                : 18
+WHILE                : 14
+error                : 
+
+Nonterminals, with rules where they appear
+
+assignment           : 5
+block                : 12 13 13 14
+declaration          : 4
+expression           : 9 10 11 12 13 14 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 24 24 25 25 26 27
+if_statement         : 7
+print_statement      : 6
+program              : 0
+statement            : 2 3
+statement_list       : 1 2 15
+while_statement      : 8
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement_list
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . print_statement
+    (7) statement -> . if_statement
+    (8) statement -> . while_statement
+    (9) declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> . IDENTIFIER ASSIGN expression SEMICOLON
+    (11) print_statement -> . PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON
+    (12) if_statement -> . IF LEFT_PAREN expression RIGHT_PAREN block
+    (13) if_statement -> . IF LEFT_PAREN expression RIGHT_PAREN block ELSE block
+    (14) while_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN block
+
+    LET             shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    PRINT           shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+
+    program                        shift and go to state 1
+    statement_list                 shift and go to state 2
+    statement                      shift and go to state 3
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    print_statement                shift and go to state 6
+    if_statement                   shift and go to state 7
+    while_statement                shift and go to state 8
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement_list .
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . print_statement
+    (7) statement -> . if_statement
+    (8) statement -> . while_statement
+    (9) declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> . IDENTIFIER ASSIGN expression SEMICOLON
+    (11) print_statement -> . PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON
+    (12) if_statement -> . IF LEFT_PAREN expression RIGHT_PAREN block
+    (13) if_statement -> . IF LEFT_PAREN expression RIGHT_PAREN block ELSE block
+    (14) while_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN block
+
+    $end            reduce using rule 1 (program -> statement_list .)
+    LET             shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    PRINT           shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+
+    statement                      shift and go to state 14
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    print_statement                shift and go to state 6
+    if_statement                   shift and go to state 7
+    while_statement                shift and go to state 8
+
+state 3
+
+    (3) statement_list -> statement .
+
+    LET             reduce using rule 3 (statement_list -> statement .)
+    IDENTIFIER      reduce using rule 3 (statement_list -> statement .)
+    PRINT           reduce using rule 3 (statement_list -> statement .)
+    IF              reduce using rule 3 (statement_list -> statement .)
+    WHILE           reduce using rule 3 (statement_list -> statement .)
+    $end            reduce using rule 3 (statement_list -> statement .)
+    RIGHT_BRACE     reduce using rule 3 (statement_list -> statement .)
+
+
+state 4
+
+    (4) statement -> declaration .
+
+    LET             reduce using rule 4 (statement -> declaration .)
+    IDENTIFIER      reduce using rule 4 (statement -> declaration .)
+    PRINT           reduce using rule 4 (statement -> declaration .)
+    IF              reduce using rule 4 (statement -> declaration .)
+    WHILE           reduce using rule 4 (statement -> declaration .)
+    $end            reduce using rule 4 (statement -> declaration .)
+    RIGHT_BRACE     reduce using rule 4 (statement -> declaration .)
+
+
+state 5
+
+    (5) statement -> assignment .
+
+    LET             reduce using rule 5 (statement -> assignment .)
+    IDENTIFIER      reduce using rule 5 (statement -> assignment .)
+    PRINT           reduce using rule 5 (statement -> assignment .)
+    IF              reduce using rule 5 (statement -> assignment .)
+    WHILE           reduce using rule 5 (statement -> assignment .)
+    $end            reduce using rule 5 (statement -> assignment .)
+    RIGHT_BRACE     reduce using rule 5 (statement -> assignment .)
+
+
+state 6
+
+    (6) statement -> print_statement .
+
+    LET             reduce using rule 6 (statement -> print_statement .)
+    IDENTIFIER      reduce using rule 6 (statement -> print_statement .)
+    PRINT           reduce using rule 6 (statement -> print_statement .)
+    IF              reduce using rule 6 (statement -> print_statement .)
+    WHILE           reduce using rule 6 (statement -> print_statement .)
+    $end            reduce using rule 6 (statement -> print_statement .)
+    RIGHT_BRACE     reduce using rule 6 (statement -> print_statement .)
+
+
+state 7
+
+    (7) statement -> if_statement .
+
+    LET             reduce using rule 7 (statement -> if_statement .)
+    IDENTIFIER      reduce using rule 7 (statement -> if_statement .)
+    PRINT           reduce using rule 7 (statement -> if_statement .)
+    IF              reduce using rule 7 (statement -> if_statement .)
+    WHILE           reduce using rule 7 (statement -> if_statement .)
+    $end            reduce using rule 7 (statement -> if_statement .)
+    RIGHT_BRACE     reduce using rule 7 (statement -> if_statement .)
+
+
+state 8
+
+    (8) statement -> while_statement .
+
+    LET             reduce using rule 8 (statement -> while_statement .)
+    IDENTIFIER      reduce using rule 8 (statement -> while_statement .)
+    PRINT           reduce using rule 8 (statement -> while_statement .)
+    IF              reduce using rule 8 (statement -> while_statement .)
+    WHILE           reduce using rule 8 (statement -> while_statement .)
+    $end            reduce using rule 8 (statement -> while_statement .)
+    RIGHT_BRACE     reduce using rule 8 (statement -> while_statement .)
+
+
+state 9
+
+    (9) declaration -> LET . IDENTIFIER ASSIGN expression SEMICOLON
+
+    IDENTIFIER      shift and go to state 15
+
+
+state 10
+
+    (10) assignment -> IDENTIFIER . ASSIGN expression SEMICOLON
+
+    ASSIGN          shift and go to state 16
+
+
+state 11
+
+    (11) print_statement -> PRINT . LEFT_PAREN expression RIGHT_PAREN SEMICOLON
+
+    LEFT_PAREN      shift and go to state 17
+
+
+state 12
+
+    (12) if_statement -> IF . LEFT_PAREN expression RIGHT_PAREN block
+    (13) if_statement -> IF . LEFT_PAREN expression RIGHT_PAREN block ELSE block
+
+    LEFT_PAREN      shift and go to state 18
+
+
+state 13
+
+    (14) while_statement -> WHILE . LEFT_PAREN expression RIGHT_PAREN block
+
+    LEFT_PAREN      shift and go to state 19
+
+
+state 14
+
+    (2) statement_list -> statement_list statement .
+
+    LET             reduce using rule 2 (statement_list -> statement_list statement .)
+    IDENTIFIER      reduce using rule 2 (statement_list -> statement_list statement .)
+    PRINT           reduce using rule 2 (statement_list -> statement_list statement .)
+    IF              reduce using rule 2 (statement_list -> statement_list statement .)
+    WHILE           reduce using rule 2 (statement_list -> statement_list statement .)
+    $end            reduce using rule 2 (statement_list -> statement_list statement .)
+    RIGHT_BRACE     reduce using rule 2 (statement_list -> statement_list statement .)
+
+
+state 15
+
+    (9) declaration -> LET IDENTIFIER . ASSIGN expression SEMICOLON
+
+    ASSIGN          shift and go to state 20
+
+
+state 16
+
+    (10) assignment -> IDENTIFIER ASSIGN . expression SEMICOLON
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 22
+
+state 17
+
+    (11) print_statement -> PRINT LEFT_PAREN . expression RIGHT_PAREN SEMICOLON
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 26
+
+state 18
+
+    (12) if_statement -> IF LEFT_PAREN . expression RIGHT_PAREN block
+    (13) if_statement -> IF LEFT_PAREN . expression RIGHT_PAREN block ELSE block
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 27
+
+state 19
+
+    (14) while_statement -> WHILE LEFT_PAREN . expression RIGHT_PAREN block
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 28
+
+state 20
+
+    (9) declaration -> LET IDENTIFIER ASSIGN . expression SEMICOLON
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 29
+
+state 21
+
+    (29) expression -> IDENTIFIER .
+
+    SEMICOLON       reduce using rule 29 (expression -> IDENTIFIER .)
+    PLUS            reduce using rule 29 (expression -> IDENTIFIER .)
+    MINUS           reduce using rule 29 (expression -> IDENTIFIER .)
+    TIMES           reduce using rule 29 (expression -> IDENTIFIER .)
+    DIVIDE          reduce using rule 29 (expression -> IDENTIFIER .)
+    EQUALS          reduce using rule 29 (expression -> IDENTIFIER .)
+    NOT_EQUALS      reduce using rule 29 (expression -> IDENTIFIER .)
+    LESS            reduce using rule 29 (expression -> IDENTIFIER .)
+    GREATER         reduce using rule 29 (expression -> IDENTIFIER .)
+    LESS_OR_EQUAL   reduce using rule 29 (expression -> IDENTIFIER .)
+    GREATER_OR_EQUAL reduce using rule 29 (expression -> IDENTIFIER .)
+    RIGHT_PAREN     reduce using rule 29 (expression -> IDENTIFIER .)
+
+
+state 22
+
+    (10) assignment -> IDENTIFIER ASSIGN expression . SEMICOLON
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       shift and go to state 30
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+    EQUALS          shift and go to state 35
+    NOT_EQUALS      shift and go to state 36
+    LESS            shift and go to state 37
+    GREATER         shift and go to state 38
+    LESS_OR_EQUAL   shift and go to state 39
+    GREATER_OR_EQUAL shift and go to state 40
+
+
+state 23
+
+    (26) expression -> MINUS . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 41
+
+state 24
+
+    (27) expression -> LEFT_PAREN . expression RIGHT_PAREN
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 42
+
+state 25
+
+    (28) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 28 (expression -> NUMBER .)
+    PLUS            reduce using rule 28 (expression -> NUMBER .)
+    MINUS           reduce using rule 28 (expression -> NUMBER .)
+    TIMES           reduce using rule 28 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 28 (expression -> NUMBER .)
+    EQUALS          reduce using rule 28 (expression -> NUMBER .)
+    NOT_EQUALS      reduce using rule 28 (expression -> NUMBER .)
+    LESS            reduce using rule 28 (expression -> NUMBER .)
+    GREATER         reduce using rule 28 (expression -> NUMBER .)
+    LESS_OR_EQUAL   reduce using rule 28 (expression -> NUMBER .)
+    GREATER_OR_EQUAL reduce using rule 28 (expression -> NUMBER .)
+    RIGHT_PAREN     reduce using rule 28 (expression -> NUMBER .)
+
+
+state 26
+
+    (11) print_statement -> PRINT LEFT_PAREN expression . RIGHT_PAREN SEMICOLON
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    RIGHT_PAREN     shift and go to state 43
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+    EQUALS          shift and go to state 35
+    NOT_EQUALS      shift and go to state 36
+    LESS            shift and go to state 37
+    GREATER         shift and go to state 38
+    LESS_OR_EQUAL   shift and go to state 39
+    GREATER_OR_EQUAL shift and go to state 40
+
+
+state 27
+
+    (12) if_statement -> IF LEFT_PAREN expression . RIGHT_PAREN block
+    (13) if_statement -> IF LEFT_PAREN expression . RIGHT_PAREN block ELSE block
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    RIGHT_PAREN     shift and go to state 44
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+    EQUALS          shift and go to state 35
+    NOT_EQUALS      shift and go to state 36
+    LESS            shift and go to state 37
+    GREATER         shift and go to state 38
+    LESS_OR_EQUAL   shift and go to state 39
+    GREATER_OR_EQUAL shift and go to state 40
+
+
+state 28
+
+    (14) while_statement -> WHILE LEFT_PAREN expression . RIGHT_PAREN block
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    RIGHT_PAREN     shift and go to state 45
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+    EQUALS          shift and go to state 35
+    NOT_EQUALS      shift and go to state 36
+    LESS            shift and go to state 37
+    GREATER         shift and go to state 38
+    LESS_OR_EQUAL   shift and go to state 39
+    GREATER_OR_EQUAL shift and go to state 40
+
+
+state 29
+
+    (9) declaration -> LET IDENTIFIER ASSIGN expression . SEMICOLON
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       shift and go to state 46
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+    EQUALS          shift and go to state 35
+    NOT_EQUALS      shift and go to state 36
+    LESS            shift and go to state 37
+    GREATER         shift and go to state 38
+    LESS_OR_EQUAL   shift and go to state 39
+    GREATER_OR_EQUAL shift and go to state 40
+
+
+state 30
+
+    (10) assignment -> IDENTIFIER ASSIGN expression SEMICOLON .
+
+    LET             reduce using rule 10 (assignment -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 10 (assignment -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    PRINT           reduce using rule 10 (assignment -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    IF              reduce using rule 10 (assignment -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    WHILE           reduce using rule 10 (assignment -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 10 (assignment -> IDENTIFIER ASSIGN expression SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 10 (assignment -> IDENTIFIER ASSIGN expression SEMICOLON .)
+
+
+state 31
+
+    (16) expression -> expression PLUS . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 47
+
+state 32
+
+    (17) expression -> expression MINUS . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 48
+
+state 33
+
+    (18) expression -> expression TIMES . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 49
+
+state 34
+
+    (19) expression -> expression DIVIDE . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 50
+
+state 35
+
+    (20) expression -> expression EQUALS . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 51
+
+state 36
+
+    (21) expression -> expression NOT_EQUALS . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 52
+
+state 37
+
+    (22) expression -> expression LESS . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 53
+
+state 38
+
+    (23) expression -> expression GREATER . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 54
+
+state 39
+
+    (24) expression -> expression LESS_OR_EQUAL . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 55
+
+state 40
+
+    (25) expression -> expression GREATER_OR_EQUAL . expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression EQUALS expression
+    (21) expression -> . expression NOT_EQUALS expression
+    (22) expression -> . expression LESS expression
+    (23) expression -> . expression GREATER expression
+    (24) expression -> . expression LESS_OR_EQUAL expression
+    (25) expression -> . expression GREATER_OR_EQUAL expression
+    (26) expression -> . MINUS expression
+    (27) expression -> . LEFT_PAREN expression RIGHT_PAREN
+    (28) expression -> . NUMBER
+    (29) expression -> . IDENTIFIER
+
+    MINUS           shift and go to state 23
+    LEFT_PAREN      shift and go to state 24
+    NUMBER          shift and go to state 25
+    IDENTIFIER      shift and go to state 21
+
+    expression                     shift and go to state 56
+
+state 41
+
+    (26) expression -> MINUS expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 26 (expression -> MINUS expression .)
+    PLUS            reduce using rule 26 (expression -> MINUS expression .)
+    MINUS           reduce using rule 26 (expression -> MINUS expression .)
+    TIMES           reduce using rule 26 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 26 (expression -> MINUS expression .)
+    EQUALS          reduce using rule 26 (expression -> MINUS expression .)
+    NOT_EQUALS      reduce using rule 26 (expression -> MINUS expression .)
+    LESS            reduce using rule 26 (expression -> MINUS expression .)
+    GREATER         reduce using rule 26 (expression -> MINUS expression .)
+    LESS_OR_EQUAL   reduce using rule 26 (expression -> MINUS expression .)
+    GREATER_OR_EQUAL reduce using rule 26 (expression -> MINUS expression .)
+    RIGHT_PAREN     reduce using rule 26 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 31 ]
+  ! MINUS           [ shift and go to state 32 ]
+  ! TIMES           [ shift and go to state 33 ]
+  ! DIVIDE          [ shift and go to state 34 ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 42
+
+    (27) expression -> LEFT_PAREN expression . RIGHT_PAREN
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    RIGHT_PAREN     shift and go to state 57
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+    EQUALS          shift and go to state 35
+    NOT_EQUALS      shift and go to state 36
+    LESS            shift and go to state 37
+    GREATER         shift and go to state 38
+    LESS_OR_EQUAL   shift and go to state 39
+    GREATER_OR_EQUAL shift and go to state 40
+
+
+state 43
+
+    (11) print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 58
+
+
+state 44
+
+    (12) if_statement -> IF LEFT_PAREN expression RIGHT_PAREN . block
+    (13) if_statement -> IF LEFT_PAREN expression RIGHT_PAREN . block ELSE block
+    (15) block -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 60
+
+    block                          shift and go to state 59
+
+state 45
+
+    (14) while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN . block
+    (15) block -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 60
+
+    block                          shift and go to state 61
+
+state 46
+
+    (9) declaration -> LET IDENTIFIER ASSIGN expression SEMICOLON .
+
+    LET             reduce using rule 9 (declaration -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 9 (declaration -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    PRINT           reduce using rule 9 (declaration -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    IF              reduce using rule 9 (declaration -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    WHILE           reduce using rule 9 (declaration -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 9 (declaration -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 9 (declaration -> LET IDENTIFIER ASSIGN expression SEMICOLON .)
+
+
+state 47
+
+    (16) expression -> expression PLUS expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 16 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 16 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 16 (expression -> expression PLUS expression .)
+    EQUALS          reduce using rule 16 (expression -> expression PLUS expression .)
+    NOT_EQUALS      reduce using rule 16 (expression -> expression PLUS expression .)
+    LESS            reduce using rule 16 (expression -> expression PLUS expression .)
+    GREATER         reduce using rule 16 (expression -> expression PLUS expression .)
+    LESS_OR_EQUAL   reduce using rule 16 (expression -> expression PLUS expression .)
+    GREATER_OR_EQUAL reduce using rule 16 (expression -> expression PLUS expression .)
+    RIGHT_PAREN     reduce using rule 16 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+
+  ! TIMES           [ reduce using rule 16 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 16 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 31 ]
+  ! MINUS           [ shift and go to state 32 ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 48
+
+    (17) expression -> expression MINUS expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 17 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 17 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 17 (expression -> expression MINUS expression .)
+    EQUALS          reduce using rule 17 (expression -> expression MINUS expression .)
+    NOT_EQUALS      reduce using rule 17 (expression -> expression MINUS expression .)
+    LESS            reduce using rule 17 (expression -> expression MINUS expression .)
+    GREATER         reduce using rule 17 (expression -> expression MINUS expression .)
+    LESS_OR_EQUAL   reduce using rule 17 (expression -> expression MINUS expression .)
+    GREATER_OR_EQUAL reduce using rule 17 (expression -> expression MINUS expression .)
+    RIGHT_PAREN     reduce using rule 17 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+
+  ! TIMES           [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 31 ]
+  ! MINUS           [ shift and go to state 32 ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 49
+
+    (18) expression -> expression TIMES expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 18 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 18 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 18 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 18 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 18 (expression -> expression TIMES expression .)
+    EQUALS          reduce using rule 18 (expression -> expression TIMES expression .)
+    NOT_EQUALS      reduce using rule 18 (expression -> expression TIMES expression .)
+    LESS            reduce using rule 18 (expression -> expression TIMES expression .)
+    GREATER         reduce using rule 18 (expression -> expression TIMES expression .)
+    LESS_OR_EQUAL   reduce using rule 18 (expression -> expression TIMES expression .)
+    GREATER_OR_EQUAL reduce using rule 18 (expression -> expression TIMES expression .)
+    RIGHT_PAREN     reduce using rule 18 (expression -> expression TIMES expression .)
+
+  ! PLUS            [ shift and go to state 31 ]
+  ! MINUS           [ shift and go to state 32 ]
+  ! TIMES           [ shift and go to state 33 ]
+  ! DIVIDE          [ shift and go to state 34 ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 50
+
+    (19) expression -> expression DIVIDE expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 19 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 19 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 19 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 19 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 19 (expression -> expression DIVIDE expression .)
+    EQUALS          reduce using rule 19 (expression -> expression DIVIDE expression .)
+    NOT_EQUALS      reduce using rule 19 (expression -> expression DIVIDE expression .)
+    LESS            reduce using rule 19 (expression -> expression DIVIDE expression .)
+    GREATER         reduce using rule 19 (expression -> expression DIVIDE expression .)
+    LESS_OR_EQUAL   reduce using rule 19 (expression -> expression DIVIDE expression .)
+    GREATER_OR_EQUAL reduce using rule 19 (expression -> expression DIVIDE expression .)
+    RIGHT_PAREN     reduce using rule 19 (expression -> expression DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 31 ]
+  ! MINUS           [ shift and go to state 32 ]
+  ! TIMES           [ shift and go to state 33 ]
+  ! DIVIDE          [ shift and go to state 34 ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 51
+
+    (20) expression -> expression EQUALS expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 20 (expression -> expression EQUALS expression .)
+    EQUALS          reduce using rule 20 (expression -> expression EQUALS expression .)
+    NOT_EQUALS      reduce using rule 20 (expression -> expression EQUALS expression .)
+    LESS            reduce using rule 20 (expression -> expression EQUALS expression .)
+    GREATER         reduce using rule 20 (expression -> expression EQUALS expression .)
+    LESS_OR_EQUAL   reduce using rule 20 (expression -> expression EQUALS expression .)
+    GREATER_OR_EQUAL reduce using rule 20 (expression -> expression EQUALS expression .)
+    RIGHT_PAREN     reduce using rule 20 (expression -> expression EQUALS expression .)
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+
+  ! PLUS            [ reduce using rule 20 (expression -> expression EQUALS expression .) ]
+  ! MINUS           [ reduce using rule 20 (expression -> expression EQUALS expression .) ]
+  ! TIMES           [ reduce using rule 20 (expression -> expression EQUALS expression .) ]
+  ! DIVIDE          [ reduce using rule 20 (expression -> expression EQUALS expression .) ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 52
+
+    (21) expression -> expression NOT_EQUALS expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 21 (expression -> expression NOT_EQUALS expression .)
+    EQUALS          reduce using rule 21 (expression -> expression NOT_EQUALS expression .)
+    NOT_EQUALS      reduce using rule 21 (expression -> expression NOT_EQUALS expression .)
+    LESS            reduce using rule 21 (expression -> expression NOT_EQUALS expression .)
+    GREATER         reduce using rule 21 (expression -> expression NOT_EQUALS expression .)
+    LESS_OR_EQUAL   reduce using rule 21 (expression -> expression NOT_EQUALS expression .)
+    GREATER_OR_EQUAL reduce using rule 21 (expression -> expression NOT_EQUALS expression .)
+    RIGHT_PAREN     reduce using rule 21 (expression -> expression NOT_EQUALS expression .)
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+
+  ! PLUS            [ reduce using rule 21 (expression -> expression NOT_EQUALS expression .) ]
+  ! MINUS           [ reduce using rule 21 (expression -> expression NOT_EQUALS expression .) ]
+  ! TIMES           [ reduce using rule 21 (expression -> expression NOT_EQUALS expression .) ]
+  ! DIVIDE          [ reduce using rule 21 (expression -> expression NOT_EQUALS expression .) ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 53
+
+    (22) expression -> expression LESS expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 22 (expression -> expression LESS expression .)
+    EQUALS          reduce using rule 22 (expression -> expression LESS expression .)
+    NOT_EQUALS      reduce using rule 22 (expression -> expression LESS expression .)
+    LESS            reduce using rule 22 (expression -> expression LESS expression .)
+    GREATER         reduce using rule 22 (expression -> expression LESS expression .)
+    LESS_OR_EQUAL   reduce using rule 22 (expression -> expression LESS expression .)
+    GREATER_OR_EQUAL reduce using rule 22 (expression -> expression LESS expression .)
+    RIGHT_PAREN     reduce using rule 22 (expression -> expression LESS expression .)
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+
+  ! PLUS            [ reduce using rule 22 (expression -> expression LESS expression .) ]
+  ! MINUS           [ reduce using rule 22 (expression -> expression LESS expression .) ]
+  ! TIMES           [ reduce using rule 22 (expression -> expression LESS expression .) ]
+  ! DIVIDE          [ reduce using rule 22 (expression -> expression LESS expression .) ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 54
+
+    (23) expression -> expression GREATER expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 23 (expression -> expression GREATER expression .)
+    EQUALS          reduce using rule 23 (expression -> expression GREATER expression .)
+    NOT_EQUALS      reduce using rule 23 (expression -> expression GREATER expression .)
+    LESS            reduce using rule 23 (expression -> expression GREATER expression .)
+    GREATER         reduce using rule 23 (expression -> expression GREATER expression .)
+    LESS_OR_EQUAL   reduce using rule 23 (expression -> expression GREATER expression .)
+    GREATER_OR_EQUAL reduce using rule 23 (expression -> expression GREATER expression .)
+    RIGHT_PAREN     reduce using rule 23 (expression -> expression GREATER expression .)
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+
+  ! PLUS            [ reduce using rule 23 (expression -> expression GREATER expression .) ]
+  ! MINUS           [ reduce using rule 23 (expression -> expression GREATER expression .) ]
+  ! TIMES           [ reduce using rule 23 (expression -> expression GREATER expression .) ]
+  ! DIVIDE          [ reduce using rule 23 (expression -> expression GREATER expression .) ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 55
+
+    (24) expression -> expression LESS_OR_EQUAL expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .)
+    EQUALS          reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .)
+    NOT_EQUALS      reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .)
+    LESS            reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .)
+    GREATER         reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .)
+    LESS_OR_EQUAL   reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .)
+    GREATER_OR_EQUAL reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .)
+    RIGHT_PAREN     reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .)
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+
+  ! PLUS            [ reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .) ]
+  ! MINUS           [ reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .) ]
+  ! TIMES           [ reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 24 (expression -> expression LESS_OR_EQUAL expression .) ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 56
+
+    (25) expression -> expression GREATER_OR_EQUAL expression .
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . EQUALS expression
+    (21) expression -> expression . NOT_EQUALS expression
+    (22) expression -> expression . LESS expression
+    (23) expression -> expression . GREATER expression
+    (24) expression -> expression . LESS_OR_EQUAL expression
+    (25) expression -> expression . GREATER_OR_EQUAL expression
+
+    SEMICOLON       reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .)
+    EQUALS          reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .)
+    NOT_EQUALS      reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .)
+    LESS            reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .)
+    GREATER         reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .)
+    LESS_OR_EQUAL   reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .)
+    GREATER_OR_EQUAL reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .)
+    RIGHT_PAREN     reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .)
+    PLUS            shift and go to state 31
+    MINUS           shift and go to state 32
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+
+  ! PLUS            [ reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .) ]
+  ! MINUS           [ reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .) ]
+  ! TIMES           [ reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 25 (expression -> expression GREATER_OR_EQUAL expression .) ]
+  ! EQUALS          [ shift and go to state 35 ]
+  ! NOT_EQUALS      [ shift and go to state 36 ]
+  ! LESS            [ shift and go to state 37 ]
+  ! GREATER         [ shift and go to state 38 ]
+  ! LESS_OR_EQUAL   [ shift and go to state 39 ]
+  ! GREATER_OR_EQUAL [ shift and go to state 40 ]
+
+
+state 57
+
+    (27) expression -> LEFT_PAREN expression RIGHT_PAREN .
+
+    SEMICOLON       reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    PLUS            reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    MINUS           reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    TIMES           reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    DIVIDE          reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    EQUALS          reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    NOT_EQUALS      reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    LESS            reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    GREATER         reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    LESS_OR_EQUAL   reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    GREATER_OR_EQUAL reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+    RIGHT_PAREN     reduce using rule 27 (expression -> LEFT_PAREN expression RIGHT_PAREN .)
+
+
+state 58
+
+    (11) print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON .
+
+    LET             reduce using rule 11 (print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON .)
+    IDENTIFIER      reduce using rule 11 (print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON .)
+    PRINT           reduce using rule 11 (print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON .)
+    IF              reduce using rule 11 (print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON .)
+    WHILE           reduce using rule 11 (print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON .)
+    $end            reduce using rule 11 (print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON .)
+    RIGHT_BRACE     reduce using rule 11 (print_statement -> PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON .)
+
+
+state 59
+
+    (12) if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block .
+    (13) if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block . ELSE block
+
+    LET             reduce using rule 12 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block .)
+    IDENTIFIER      reduce using rule 12 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block .)
+    PRINT           reduce using rule 12 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block .)
+    IF              reduce using rule 12 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block .)
+    WHILE           reduce using rule 12 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block .)
+    $end            reduce using rule 12 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block .)
+    RIGHT_BRACE     reduce using rule 12 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block .)
+    ELSE            shift and go to state 62
+
+
+state 60
+
+    (15) block -> LEFT_BRACE . statement_list RIGHT_BRACE
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . print_statement
+    (7) statement -> . if_statement
+    (8) statement -> . while_statement
+    (9) declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> . IDENTIFIER ASSIGN expression SEMICOLON
+    (11) print_statement -> . PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON
+    (12) if_statement -> . IF LEFT_PAREN expression RIGHT_PAREN block
+    (13) if_statement -> . IF LEFT_PAREN expression RIGHT_PAREN block ELSE block
+    (14) while_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN block
+
+    LET             shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    PRINT           shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+
+    statement_list                 shift and go to state 63
+    statement                      shift and go to state 3
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    print_statement                shift and go to state 6
+    if_statement                   shift and go to state 7
+    while_statement                shift and go to state 8
+
+state 61
+
+    (14) while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN block .
+
+    LET             reduce using rule 14 (while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN block .)
+    IDENTIFIER      reduce using rule 14 (while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN block .)
+    PRINT           reduce using rule 14 (while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN block .)
+    IF              reduce using rule 14 (while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN block .)
+    WHILE           reduce using rule 14 (while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN block .)
+    $end            reduce using rule 14 (while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN block .)
+    RIGHT_BRACE     reduce using rule 14 (while_statement -> WHILE LEFT_PAREN expression RIGHT_PAREN block .)
+
+
+state 62
+
+    (13) if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE . block
+    (15) block -> . LEFT_BRACE statement_list RIGHT_BRACE
+
+    LEFT_BRACE      shift and go to state 60
+
+    block                          shift and go to state 64
+
+state 63
+
+    (15) block -> LEFT_BRACE statement_list . RIGHT_BRACE
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . declaration
+    (5) statement -> . assignment
+    (6) statement -> . print_statement
+    (7) statement -> . if_statement
+    (8) statement -> . while_statement
+    (9) declaration -> . LET IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> . IDENTIFIER ASSIGN expression SEMICOLON
+    (11) print_statement -> . PRINT LEFT_PAREN expression RIGHT_PAREN SEMICOLON
+    (12) if_statement -> . IF LEFT_PAREN expression RIGHT_PAREN block
+    (13) if_statement -> . IF LEFT_PAREN expression RIGHT_PAREN block ELSE block
+    (14) while_statement -> . WHILE LEFT_PAREN expression RIGHT_PAREN block
+
+    RIGHT_BRACE     shift and go to state 65
+    LET             shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    PRINT           shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+
+    statement                      shift and go to state 14
+    declaration                    shift and go to state 4
+    assignment                     shift and go to state 5
+    print_statement                shift and go to state 6
+    if_statement                   shift and go to state 7
+    while_statement                shift and go to state 8
+
+state 64
+
+    (13) if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE block .
+
+    LET             reduce using rule 13 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE block .)
+    IDENTIFIER      reduce using rule 13 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE block .)
+    PRINT           reduce using rule 13 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE block .)
+    IF              reduce using rule 13 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE block .)
+    WHILE           reduce using rule 13 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE block .)
+    $end            reduce using rule 13 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE block .)
+    RIGHT_BRACE     reduce using rule 13 (if_statement -> IF LEFT_PAREN expression RIGHT_PAREN block ELSE block .)
+
+
+state 65
+
+    (15) block -> LEFT_BRACE statement_list RIGHT_BRACE .
+
+    ELSE            reduce using rule 15 (block -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    LET             reduce using rule 15 (block -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    IDENTIFIER      reduce using rule 15 (block -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    PRINT           reduce using rule 15 (block -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    IF              reduce using rule 15 (block -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    WHILE           reduce using rule 15 (block -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    $end            reduce using rule 15 (block -> LEFT_BRACE statement_list RIGHT_BRACE .)
+    RIGHT_BRACE     reduce using rule 15 (block -> LEFT_BRACE statement_list RIGHT_BRACE .)
+
